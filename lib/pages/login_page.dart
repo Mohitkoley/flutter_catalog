@@ -9,7 +9,7 @@ class LoginPage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter Catalog"),
+          title: Text("Login"),
         ),
         body: SingleChildScrollView(
           child: Center(
