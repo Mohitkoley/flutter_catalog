@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utills/routes.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String _name = "";
+  bool onChanged = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Login"),
+          title: Center(child: Text("Login", style: TextStyle())),
         ),
         body: SingleChildScrollView(
           child: Center(
             child: Column(children: [
               Image.asset('assets/images/login.png', fit: BoxFit.contain),
               const SizedBox(height: 20),
-              const Text(
-                "Welcome User",
+              Text(
+                "Welcome $_name",
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               Padding(
@@ -28,6 +35,11 @@ class LoginPage extends StatelessWidget {
                     autofocus: true,
                     decoration: InputDecoration(
                         hintText: "Enter username", labelText: "Username"),
+                    onChanged: (name) {
+                      setState(() {
+                        _name = name;
+                      });
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
@@ -37,7 +49,39 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 40),
-                  ElevatedButton(
+                  InkWell(
+                    onTap: () async {
+                      setState(() {
+                        onChanged = true;
+                      });
+                      await Future.delayed(Duration(milliseconds: 1050));
+                      Navigator.pushNamed(context, MyRoutees.homeRoute);
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(seconds: 2),
+                      width: onChanged ? 50 : 120,
+                      height: 40,
+                      alignment: Alignment.center,
+                      child: onChanged
+                          ? Icon(
+                              Icons.done,
+                              color: Colors.white,
+                            )
+                          : Text(
+                              "Login",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        //shape: onChanged ? BoxShape.circle : BoxShape.rectangle,
+                        borderRadius: BorderRadius.circular(onChanged ? 50 : 8),
+                      ),
+                    ),
+                  ),
+                  /*ElevatedButton(
                     child: Text(
                       "Login",
                     ),
@@ -47,7 +91,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, MyRoutees.homeRoute);
                     },
-                  ),
+                  ),*/
                 ]),
               ),
             ]),
