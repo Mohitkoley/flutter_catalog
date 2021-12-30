@@ -15,6 +15,7 @@ class _LoginPageState extends State<LoginPage> {
 
   moveToHome(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
       setState(() {
         onChanged = true;
       });
