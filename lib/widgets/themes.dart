@@ -5,7 +5,7 @@ class MyTheme {
   static ThemeData lightTheme() => ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: GoogleFonts.lato().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.white,
           elevation: 0,
@@ -30,4 +30,7 @@ class MyTheme {
           titleTextStyle: TextStyle(color: Colors.deepPurple),
         ),
       );
+
+  static Color CreamColor = Color(0xfff5f5f5);
+  static Color darkBluieshColor = Color(0xff403b58);
 }
