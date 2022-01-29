@@ -89,9 +89,7 @@ class CatalogList extends StatelessWidget {
 }
 
 class CatalogItem extends StatelessWidget {
-  const CatalogItem({Key? key, required this.catalog})
-      : assert(catalog != null),
-        super(key: key);
+  const CatalogItem({Key? key, required this.catalog}) : super(key: key);
   final Item catalog;
   @override
   Widget build(BuildContext context) {
