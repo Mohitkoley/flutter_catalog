@@ -10,13 +10,15 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
+      backgroundColor: MyTheme.CreamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: Vx.mH8,
           children: [
-            "\$${catalog.image}".text.bold.xl4.red800.make(),
+            "\$${catalog.image}".text.white.make(),
             ElevatedButton(
               style: ButtonStyle(
                 backgroundColor:
@@ -29,7 +31,7 @@ class HomeDetailPage extends StatelessWidget {
               child: "Buy".text.make(),
             ).wh(100, 50),
           ],
-        ).p32(),
+        ),
       ),
       body: SafeArea(
         bottom: false,
@@ -37,30 +39,28 @@ class HomeDetailPage extends StatelessWidget {
           children: [
             Hero(
               tag: Key(catalog.id.toString()),
-              child: Image.network(catalog.image).centered().h32(context),
-            ),
+              child: Image.network(catalog.image),
+            ).h32(context),
             Expanded(
-              child: VxArc(
-                height: 10.0,
-                arcType: VxArcType.CONVEY,
-                edge: VxEdge.TOP,
-                child: Container(
-                  width: context.screenWidth,
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      catalog.name.text.lg
-                          .color(MyTheme.darkBluieshColor)
-                          .bold
-                          .xl6
-                          .make(),
-                      catalog.desc.text.xl.make(),
-                      10.heightBox,
-                    ],
-                  ).py64(),
-                ),
+                child: VxArc(
+              height: 30,
+              arcType: VxArcType.CONVEY,
+              edge: VxEdge.TOP,
+              child: Container(
+                color: Colors.white,
+                width: context.screenWidth,
+                child: Column(
+                  children: [
+                    catalog.name.text.xl4
+                        .color(MyTheme.darkBluieshColor)
+                        .bold
+                        .make(),
+                    catalog.desc.text.make(),
+                    10.heightBox,
+                  ],
+                ).py64(),
               ),
-            ),
+            )),
           ],
         ),
       ),
