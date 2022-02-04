@@ -5,12 +5,15 @@ import 'package:velocity_x/velocity_x.dart';
 
 class HomeDetailPage extends StatelessWidget {
   final Item catalog;
-  const HomeDetailPage({Key? key, required this.catalog}) : super(key: key);
+  HomeDetailPage({Key? key, required this.catalog}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var _styleType = Theme.of(context).textTheme.bodyText1;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       backgroundColor: MyTheme.CreamColor,
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -28,8 +31,8 @@ class HomeDetailPage extends StatelessWidget {
                 ),
               ),
               onPressed: () {},
-              child: "Buy".text.make(),
-            ).wh(100, 50),
+              child: "Add to cart".text.make(),
+            ).wh(120, 50),
           ],
         ),
       ),
@@ -57,6 +60,10 @@ class HomeDetailPage extends StatelessWidget {
                         .make(),
                     catalog.desc.text.make(),
                     10.heightBox,
+                    "Kasd rebum diam labore sit erat dolores sea. Accusam est sed eos vero magna kasd ea justo. Elitr diam et."
+                        .text
+                        .make()
+                        .p16(),
                   ],
                 ).py64(),
               ),

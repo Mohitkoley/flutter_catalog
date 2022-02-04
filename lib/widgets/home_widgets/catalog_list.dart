@@ -64,7 +64,7 @@ class CatalogItem extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {},
-                  child: "Buy".text.make(),
+                  child: "Add to Cart".text.make(),
                 ),
               ],
             ).pOnly(right: 8.0)

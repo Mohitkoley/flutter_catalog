@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
         onChanged = true;
       });
       await Future.delayed(const Duration(milliseconds: 1050));
-      Navigator.pushNamed(context, MyRoutees.homeRoute);
+      Navigator.pushNamed(context, MyRoutes.homeRoute);
     }
   }
 
