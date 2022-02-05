@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                               : Text(
                                   "Login",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: context.primaryColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18),
                                 ),
