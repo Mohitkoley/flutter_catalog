@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 40),
                     Material(
                       borderRadius: BorderRadius.circular(onChanged ? 50 : 8),
-                      color: Colors.deepPurple,
+                      color: context.primaryColor,
                       child: InkWell(
                         onTap: () => moveToHome(context),
                         child: AnimatedContainer(
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                               : Text(
                                   "Login",
                                   style: TextStyle(
-                                      color: context.primaryColor,
+                                      color: Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 18),
                                 ),
