@@ -15,11 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       title: 'Flutter catalog',
       theme: MyTheme.lightTheme(),
       darkTheme: MyTheme.darkTheme(),
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.loginRoute,
       routes: {
         '/': (context) => const LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),

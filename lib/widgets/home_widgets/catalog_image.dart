@@ -12,7 +12,7 @@ class CataLogImage extends StatelessWidget {
         .box
         .rounded
         .p8
-        .color(MyTheme.CreamColor)
+        .color(context.canvasColor)
         .make()
         .p16()
         .w40(context);
