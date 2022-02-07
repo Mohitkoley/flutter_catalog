@@ -1,9 +1,11 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import "package:velocity_x/velocity_x.dart";
 
 class MyTheme {
-  static ThemeData lightTheme() => ThemeData(
+  static ThemeData lightTheme(BuildContext context) => ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
         cardColor: Colors.white,
         canvasColor: CreamColor,
@@ -24,7 +26,7 @@ class MyTheme {
             .copyWith(secondary: darkBluieshColor),
       );
 
-  static ThemeData darkTheme() => ThemeData(
+  static ThemeData darkTheme(BuildContext context) => ThemeData(
         primarySwatch: Colors.deepPurple,
         cardColor: Colors.black,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -44,6 +46,9 @@ class MyTheme {
           ),
           titleTextStyle: TextStyle(color: Colors.black),
         ),
+        textTheme: Theme.of(context).textTheme.copyWith(
+            headline6:
+                context.textTheme.headline6?.copyWith(color: Colors.white)),
       );
 
   static Color CreamColor = Color(0xfff5f5f5);

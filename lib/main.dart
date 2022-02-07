@@ -18,9 +18,9 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       title: 'Flutter catalog',
-      theme: MyTheme.lightTheme(),
-      darkTheme: MyTheme.darkTheme(),
-      initialRoute: MyRoutes.loginRoute,
+      theme: MyTheme.lightTheme(context),
+      darkTheme: MyTheme.darkTheme(context),
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         '/': (context) => const LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),

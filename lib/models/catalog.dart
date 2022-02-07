@@ -6,6 +6,11 @@ class CatalogModel {
     Item(1, "iPhone 12 Pro", "Apple Iphone 12th genration", 999, "#33505a",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRISJ6msIu4AU9_M9ZnJVQVFmfuhfyJjEtbUm3ZK11_8IV9TV25-1uM5wHjiFNwKy99w0mR5Hk&usqp=CAc"),
   ];
+
+  static Item getItembyId(int id) =>
+      items.firstWhere((item) => item.id == id, orElse: null);
+
+  static Item getByPos(int pos) => items[pos];
 }
 
 class Item {
