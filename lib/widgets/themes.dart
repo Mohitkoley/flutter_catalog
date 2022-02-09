@@ -24,6 +24,9 @@ class MyTheme {
         ),
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
             .copyWith(secondary: darkBluieshColor),
+        textTheme: Theme.of(context).textTheme.copyWith(
+            headline6:
+                context.textTheme.headline6?.copyWith(color: Colors.black)),
       );
 
   static ThemeData darkTheme(BuildContext context) => ThemeData(
@@ -47,8 +50,9 @@ class MyTheme {
           titleTextStyle: TextStyle(color: Colors.black),
         ),
         textTheme: Theme.of(context).textTheme.copyWith(
-            headline6:
-                context.textTheme.headline6?.copyWith(color: Colors.white)),
+            headline6: context.textTheme.headline6?.copyWith(color: CreamColor),
+            bodyText1:
+                context.textTheme.bodyText1?.copyWith(color: CreamColor)),
       );
 
   static Color CreamColor = Color(0xfff5f5f5);
