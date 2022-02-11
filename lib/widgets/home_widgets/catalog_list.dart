@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/models/cart.dart';
 import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/pages/home_detail_page.dart';
 
@@ -58,22 +59,48 @@ class CatalogItem extends StatelessWidget {
               buttonPadding: Vx.mH8,
               children: [
                 "\$${catalog.image}".text.make(),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                        Theme.of(context).primaryColor),
-                    shape: MaterialStateProperty.all(
-                      StadiumBorder(),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: "Add to Cart".text.make(),
-                ),
+                _AddToCartState(catalog: catalog),
               ],
             ).pOnly(right: 8.0)
           ],
         )),
       ]),
     ).color(context.cardColor).roundedLg.square(150).make().py16();
+  }
+}
+
+class _AddToCartState extends StatefulWidget {
+  final Item catalog;
+  _AddToCartState({
+    Key? key,
+    required this.catalog,
+  }) : super(key: key);
+
+  @override
+  State<_AddToCartState> createState() => _AddToCartStateState();
+}
+
+class _AddToCartStateState extends State<_AddToCartState> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor:
+            MaterialStateProperty.all(Theme.of(context).primaryColor),
+        shape: MaterialStateProperty.all(
+          StadiumBorder(),
+        ),
+      ),
+      onPressed: () {
+        final _catalog = CatalogModel();
+        final _cart = CartModel();
+        _cart.catalog = _catalog;
+        _cart.add(widget.catalog);
+        isAdded = isAdded.toggle();
+        setState(() {});
+      },
+      child: isAdded ? Icon(Icons.done_outline) : "Add to Cart".text.make(),
+    );
   }
 }
